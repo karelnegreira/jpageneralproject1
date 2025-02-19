@@ -1,23 +1,21 @@
 package com.example.jpatest;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+
 
 @Entity
 public class Employee {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstname;
     private String lastname;
     //jpa no args constructor
     public Employee() {}
 
-    public Employee(String lastname, String firstname, Long id) {
+    public Employee(String firstname, String lastname) {
         this.lastname = lastname;
         this.firstname = firstname;
-        this.id = id;
     }
 
     public String getFirstname() {
@@ -34,18 +32,6 @@ public class Employee {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public Employee(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override
