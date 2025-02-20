@@ -16,8 +16,9 @@ public class JpatestApplication {
 	public CommandLineRunner run(EmployeeRepository repository) {
 		return (
 				args -> {
-					insertEmployees(repository);
-					System.out.println(repository.findAll());
+					//insertEmployees(repository);
+					//System.out.println(repository.findAll());
+					System.out.println(repository.findEmployeeByLastnameContaining("K"));
 				}
 				);
 	}

@@ -3,6 +3,8 @@ package com.example.jpatest;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+import java.util.List;
 
+public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+    List<Employee> findEmployeeByLastnameContaining(String str);
 }
